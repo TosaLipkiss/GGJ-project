@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public float constantMovement = 1;
+    public float constantMovement = 3.0f;
 
     void Start()
     {
