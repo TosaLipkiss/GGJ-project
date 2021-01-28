@@ -23,18 +23,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector2.right * runSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(-Vector2.right * runSpeed * Time.deltaTime);
-        }
-        */
         directionX = Input.GetAxisRaw("Horizontal") * runSpeed;
-
         animator.SetFloat("Speed", Mathf.Abs(directionX));
         Flip(directionX);
         Jump();
@@ -70,7 +59,6 @@ public class Player : MonoBehaviour
         if(directionX > 0 && !facingRight || directionX < 0 && facingRight)
         {
             facingRight = !facingRight;
-
             Vector3 playerScale = transform.localScale;
             playerScale.x *= -1;
             transform.localScale = playerScale;
