@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class DestroyerZone : MonoBehaviour
 {
-
-    public float playerSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +13,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            Debug.Log("Game Over!");
+        }
     }
 }
+
