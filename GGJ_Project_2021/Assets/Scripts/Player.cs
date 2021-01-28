@@ -18,8 +18,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        directionX = Input.GetAxisRaw("Horizontal") * moveSpeed;
-
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(-Vector2.right * moveSpeed * Time.deltaTime);
+        }
         Jump();
     }
 
