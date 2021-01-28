@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     float directionX;
-    float moveSpeed = 1.5f;
-    float jumpSpeed = 7f;
+    float moveSpeed = 5.0f;
+    float jumpSpeed = 7.0f;
 
     bool isJumping = false;
 
