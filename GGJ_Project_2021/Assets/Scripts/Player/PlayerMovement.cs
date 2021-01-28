@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     public float playerSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void MovePlayer(Vector3 move)
     {
-        
+        if(move.sqrMagnitude > 0.01)
+        {
+            transform.position += move;
+        }
     }
 }
