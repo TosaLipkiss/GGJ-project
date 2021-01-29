@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(pauseGame.pause == true)
+        if(pauseGame.pause == true || Time.deltaTime == 0)
         {
             return;
         }
