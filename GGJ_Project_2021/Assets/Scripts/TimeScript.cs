@@ -8,11 +8,9 @@ public class TimeScript : MonoBehaviour
     Image timerBar;
     public float maxTime = 10.0f;
     public float currentTime;
-    public GameObject timesUp;
 
     void Start()
     {
-        timesUp.SetActive(false);
         timerBar = GetComponent<Image>();
         currentTime = maxTime;
     }
@@ -26,7 +24,6 @@ public class TimeScript : MonoBehaviour
         }
         else
         {
-            timesUp.SetActive(true);
             Time.timeScale = 0;
         }
     }
