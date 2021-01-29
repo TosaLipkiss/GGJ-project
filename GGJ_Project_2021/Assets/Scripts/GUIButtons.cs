@@ -14,8 +14,9 @@ public class GUIButtons : MonoBehaviour
     {
         Application.Quit();
     }
-    public void Pause()
-    {
 
+    public void PlayGameButton()
+    {
+        SceneManager.LoadScene("GamePlayScene");
     }
 }
