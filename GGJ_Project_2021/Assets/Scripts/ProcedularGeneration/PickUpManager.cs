@@ -8,8 +8,8 @@ public class PickUpManager : MonoBehaviour
 
     float timeUntilNextPickupSpawn;
     float timeSinceLastPickUpSpawn;
-    float minimumTimeUntilPickupSpawn = 6;
-    float maximumTimeUntilPickupSpawn = 10;
+    public float minimumTimeUntilPickupSpawn = 10;
+    public float maximumTimeUntilPickupSpawn = 15;
 
     void Start()
     {

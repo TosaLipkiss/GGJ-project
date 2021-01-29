@@ -8,8 +8,8 @@ public class MiddlegroundManager: MonoBehaviour
 
     float timeUntilNextSpawn;
     float timeSinceLastSpawn;
-    float minimumTimeUntilSpawn = 10;
-    float maximumTimeUntilSpawn = 14;
+    public float minimumTimeUntilSpawn = 25;
+    public float maximumTimeUntilSpawn = 40;
 
     void Start()
     {

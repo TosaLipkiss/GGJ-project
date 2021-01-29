@@ -8,8 +8,8 @@ public class ObstacleManager : MonoBehaviour
 
         float timeUntilNextObstacleSpawn;
         float timeSinceLastObstacleSpawn;
-        float minimumTimeUntilObstacleSpawn = 6;
-        float maximumTimeUntilObstacleSpawn = 10;
+        public float minimumTimeUntilObstacleSpawn = 6;
+        public float maximumTimeUntilObstacleSpawn = 10;
 
         void Start()
         {
