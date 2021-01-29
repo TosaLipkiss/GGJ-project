@@ -574,10 +574,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerAvatar
       objectReference: {fileID: 0}
-    - target: {fileID: 2329906485449484031, guid: 25f66d77845015d47ad0cd259081c7dd, type: 3}
-      propertyPath: constantMovement
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f66d77845015d47ad0cd259081c7dd, type: 3}
 --- !u!1001 &578302733859573262
