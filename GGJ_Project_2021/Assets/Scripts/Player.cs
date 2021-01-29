@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class Player : MonoBehaviour
     float runSpeed = 5.0f;
     float jumpSpeed = 7.0f;
 
+    public Text scoreText;
+    public float score = 5;
+
     bool isJumping = false;
     bool facingRight;
 
     private void Start()
     {
+        Score();
         facingRight = true;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -39,18 +44,32 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            animator.SetBool("Jump", true);
             isJumping = true;
+            if (rb.velocity.y > 0)
+            {
+                animator.SetBool("Jump", true);
+            }
+            else
+            {
+                animator.SetBool("Fall", true);
+            }
         }
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Obstacle")
         {
             Debug.Log("Collides with deathzone");
             animator.SetBool("Jump", false);
             isJumping = false;
+        }
+
+        if(collision.gameObject.tag == "Points")
+        {
+            Debug.Log("Point picked up");
+            Destroy(gameObject);
+            Score();
         }
     }
 
@@ -63,5 +82,11 @@ public class Player : MonoBehaviour
             playerScale.x *= -1;
             transform.localScale = playerScale;
         }
+    }
+
+    public void Score()
+    {
+        score++;
+        scoreText.text = score.ToString();
     }
 }
