@@ -148,7 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseGame: {fileID: 0}
   scoreText: {fileID: 0}
-  score: 5
 --- !u!95 &1494494984
 Animator:
   serializedVersion: 3
