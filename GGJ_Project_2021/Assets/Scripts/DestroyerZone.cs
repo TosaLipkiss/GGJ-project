@@ -10,8 +10,8 @@ public class DestroyerZone : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            Time.timeScale = 0;
             gameOver.SetActive(true);
-            Debug.Log("Game Over!");
         }
     }
 }

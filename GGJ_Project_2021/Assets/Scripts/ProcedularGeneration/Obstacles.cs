@@ -9,8 +9,6 @@ public class Obstacles : MonoBehaviour
     {
         if (collision.gameObject.tag == "DeathZone")
         {
-            Debug.Log("Obstacle destroyed");
-
             Destroy(gameObject);
         }
     }
