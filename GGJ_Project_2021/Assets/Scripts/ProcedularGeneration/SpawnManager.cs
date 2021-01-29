@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] middleGroundObjects;
-    int amountOfMiddleGroundObject = 3;
+    public Object[] middleGroundObjects;
 
-    public GameObject[] obstacles;
-    int amountOfObstacle = 3;
+    public Object[] obstacles;
 
-    public GameObject[] pickupObjects;
-    int amountOfPickup = 1;
+    public Object[] pickupObjects;
 
     //Data for govern spawners
     float timeSinceMiddleGroundSpawn;
@@ -19,14 +16,16 @@ public class SpawnManager : MonoBehaviour
     float timeToPickupSpawn;
     float timeToObstacleSpawn;
 
+    int indexToSpawn;
+
 
     void Start()
     {
-        middleGroundObjects = new GameObject[amountOfMiddleGroundObject];
+        middleGroundObjects = Resources.LoadAll("Prefabs/Middleground", typeof(GameObject));
 
-        middleGroundObjects[0] = Resources.Load<GameObject>("Prefabs/Middleground/Middleground_Alley01");
-        middleGroundObjects[1] = Resources.Load<GameObject>("Prefabs/Middleground/Middleground_Alley02");
-        middleGroundObjects[2] = Resources.Load<GameObject>("Prefabs/Middleground/Middleground_Alley03");
+        obstacles = Resources.LoadAll("Prefabs/Obstacles", typeof(GameObject));
+
+        pickupObjects = Resources.LoadAll("Prefabs/Pickup", typeof(GameObject));
 
         timeSinceMiddleGroundSpawn = 0;
         timeBetweenMiddleGroundSpawn = 10;
@@ -36,8 +35,12 @@ public class SpawnManager : MonoBehaviour
     {
         if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn)
         {
-            Instantiate(middleGroundObjects[0], transform.position, Quaternion.identity);
+            indexToSpawn = Random.Range(0, middleGroundObjects.Length - 1);
+            
+            Instantiate(middleGroundObjects[indexToSpawn], transform.position, Quaternion.identity);
             timeSinceMiddleGroundSpawn = 0;
+
+            timeBetweenMiddleGroundSpawn = 10 + Random.Range(-3f, +3f);
         }
         else
         {
