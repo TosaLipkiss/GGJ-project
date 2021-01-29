@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4868732331471136550}
   - component: {fileID: 7674578379127078216}
   - component: {fileID: 6421048541086756824}
+  - component: {fileID: 7506954023295393214}
   m_Layer: 0
   m_Name: Pickup_WackDonaldsFries
   m_TagString: Points
@@ -146,3 +147,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7506954023295393214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784806643425154831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55b9ac410fd47846bcab1d1ac7e3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

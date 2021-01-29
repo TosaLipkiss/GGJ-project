@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4920269294266035742}
   - component: {fileID: 7984754073966655475}
   - component: {fileID: -2363009956847847726}
+  - component: {fileID: -4008210213060025820}
   m_Layer: 0
   m_Name: Pickup_CrackedMug
   m_TagString: Points
@@ -146,3 +147,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4008210213060025820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8010352683339022549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55b9ac410fd47846bcab1d1ac7e3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

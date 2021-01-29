@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2043017424305501064}
   - component: {fileID: 2780328824450136748}
   - component: {fileID: 7713062159232355585}
-  - component: {fileID: -2370998459897308380}
   - component: {fileID: -5199285108755626974}
+  - component: {fileID: -1575939879335386578}
   m_Layer: 0
   m_Name: Pickup_Soup_Can
   m_TagString: Points
@@ -127,20 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constantMovement: 3
   leftOutOfBounds: -15
---- !u!114 &-2370998459897308380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2245027326680749568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3dc56a7f91f54f4aa52e3ff87c803fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  constantMovement: 3
-  leftOutOfBounds: -15
 --- !u!50 &-5199285108755626974
 Rigidbody2D:
   serializedVersion: 4
@@ -162,6 +148,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1575939879335386578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2245027326680749568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55b9ac410fd47846bcab1d1ac7e3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8964087766046655215
 GameObject:
   m_ObjectHideFlags: 0

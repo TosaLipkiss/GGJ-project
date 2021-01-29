@@ -14,14 +14,13 @@ public class Player : MonoBehaviour
     float jumpSpeed = 7.0f;
 
     public Text scoreText;
-    public float score = 5f;
+    int score = 0;
 
     bool isJumping = false;
     bool facingRight;
 
     private void Start()
     {
-        Score();
         facingRight = true;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -82,7 +81,7 @@ public class Player : MonoBehaviour
 
         if(collision.gameObject.tag == "Points")
         {
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
             Score();
         }
     }

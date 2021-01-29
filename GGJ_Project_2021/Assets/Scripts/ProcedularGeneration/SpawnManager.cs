@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public Transform pickUpSpawnPoint;
+
     public Object[] middleGroundObjects;
-
     public Object[] obstacles;
-
     public Object[] pickupObjects;
 
     //Data for govern spawners
@@ -16,15 +16,16 @@ public class SpawnManager : MonoBehaviour
     float timeSinceObstacleSpawn;
     float timeBetweenObstacleSpawn;
 
+    float pickUpSpawnTimer = 0f;
+    float pickUpSpawnInterval = 2f;
+
     int indexToSpawn;
 
 
     void Start()
     {
         middleGroundObjects = Resources.LoadAll("Prefabs/Middleground", typeof(GameObject));
-
         obstacles = Resources.LoadAll("Prefabs/Obstacles", typeof(GameObject));
-
         pickupObjects = Resources.LoadAll("Prefabs/Pickup", typeof(GameObject));
 
         timeSinceMiddleGroundSpawn = 0;
@@ -36,6 +37,7 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
+        SpawnPickUp();
         if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn)
         {
             indexToSpawn = Random.Range(0, middleGroundObjects.Length - 1);
@@ -57,6 +59,17 @@ public class SpawnManager : MonoBehaviour
             Instantiate(obstacles[indexToSpawn], transform.position, Quaternion.identity);
             
             timeBetweenObstacleSpawn = 3.0f + Random.Range(-1.2f, +1.0f);
+        }
+    }
+
+    void SpawnPickUp()
+    {
+        pickUpSpawnTimer += Time.deltaTime;
+        if(pickUpSpawnTimer >= pickUpSpawnInterval)
+        {
+            int randomPickUp = Random.Range(0, pickupObjects.Length);
+            Instantiate(pickupObjects[randomPickUp], pickUpSpawnPoint.position, Quaternion.identity);
+            pickUpSpawnTimer = 0f;
         }
     }
 }

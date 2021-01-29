@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4174467178430887500}
   - component: {fileID: 6267969586668441832}
   - component: {fileID: 8754057551137343006}
+  - component: {fileID: 5312925481010102947}
   m_Layer: 0
   m_Name: Pickup_Sock
   m_TagString: Points
@@ -146,3 +147,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5312925481010102947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732356276900117498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55b9ac410fd47846bcab1d1ac7e3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

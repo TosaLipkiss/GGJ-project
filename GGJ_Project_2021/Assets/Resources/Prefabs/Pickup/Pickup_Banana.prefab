@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7803142399846354609}
   - component: {fileID: 7803142399846354610}
   - component: {fileID: 7203833387945280572}
+  - component: {fileID: 866135270}
+  - component: {fileID: -8091691503029577711}
   m_Layer: 0
   m_Name: Pickup_Banana
   m_TagString: Points
@@ -146,3 +148,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &866135270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803142399846354611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55b9ac410fd47846bcab1d1ac7e3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8091691503029577711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803142399846354611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55b9ac410fd47846bcab1d1ac7e3be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
