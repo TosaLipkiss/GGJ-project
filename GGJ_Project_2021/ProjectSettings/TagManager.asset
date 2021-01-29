@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - DeathZone
   - Ground
+  - Points
+  - Puddles
   layers:
   - Default
   - TransparentFX
