@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GUIButtons : MonoBehaviour
 {
-    public void restart()
+    public void Restart()
     {
-        Debug.Log("restarting");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ExitGameButton()
+    {
+        Application.Quit();
+    }
+    public void Pause()
+    {
+
     }
 }
