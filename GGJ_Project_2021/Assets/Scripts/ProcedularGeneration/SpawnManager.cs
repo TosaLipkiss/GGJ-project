@@ -13,8 +13,8 @@ public class SpawnManager : MonoBehaviour
     //Data for govern spawners
     float timeSinceMiddleGroundSpawn;
     float timeBetweenMiddleGroundSpawn;
-    float timeToPickupSpawn;
-    float timeToObstacleSpawn;
+    float timeSinceObstacleSpawn;
+    float timeBetweenObstacleSpawn;
 
     int indexToSpawn;
 
@@ -29,6 +29,9 @@ public class SpawnManager : MonoBehaviour
 
         timeSinceMiddleGroundSpawn = 0;
         timeBetweenMiddleGroundSpawn = 10;
+
+        timeSinceObstacleSpawn = 0;
+        timeBetweenObstacleSpawn = 3;
     }
 
     void Update()
@@ -37,7 +40,7 @@ public class SpawnManager : MonoBehaviour
         {
             indexToSpawn = Random.Range(0, middleGroundObjects.Length - 1);
             
-            Instantiate(middleGroundObjects[indexToSpawn], transform.position, Quaternion.identity);
+            Instantiate(middleGroundObjects[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
             timeSinceMiddleGroundSpawn = 0;
 
             timeBetweenMiddleGroundSpawn = 10 + Random.Range(-3f, +3f);
@@ -45,6 +48,15 @@ public class SpawnManager : MonoBehaviour
         else
         {
             timeSinceMiddleGroundSpawn += Time.deltaTime;
+        }
+
+        if(timeSinceObstacleSpawn >= timeBetweenObstacleSpawn)
+        {
+            indexToSpawn = Random.Range(0, obstacles.Length - 1);
+
+            Instantiate(obstacles[indexToSpawn], transform.position, Quaternion.identity);
+            
+            timeBetweenObstacleSpawn = 3.0f + Random.Range(-1.2f, +1.0f);
         }
     }
 }
