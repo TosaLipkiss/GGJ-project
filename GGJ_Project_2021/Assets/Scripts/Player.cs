@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public PauseGame pauseGame;
 
     float directionX = 0.0f;
-    float runSpeed = 5.0f;
+    float runSpeed = 3.6f;
     float jumpSpeed = 7.0f;
 
     public Text scoreText;
