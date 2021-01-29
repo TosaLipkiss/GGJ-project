@@ -6,32 +6,37 @@ public class MiddlegroundManager: MonoBehaviour
 {
     public GameObject middleGroundObject;
 
-    float timeUntilNextSpawn;
-    float timeSinceLastSpawn;
-    public float minimumTimeUntilSpawn = 25;
-    public float maximumTimeUntilSpawn = 40;
+    //float timeUntilNextSpawn;
+    //float timeSinceLastSpawn;
+    //public float minimumTimeUntilSpawn = 25;
+    //public float maximumTimeUntilSpawn = 40;
 
     void Start()
     {
-        Vector2 positionMiddleGroundObject = transform.position;
+        //Vector2 positionMiddleGroundObject = transform.position;
 
-        timeSinceLastSpawn = 0;
+        //timeSinceLastSpawn = 0;
 
-        timeUntilNextSpawn = Random.Range(minimumTimeUntilSpawn, maximumTimeUntilSpawn);
+        //timeUntilNextSpawn = Random.Range(minimumTimeUntilSpawn, maximumTimeUntilSpawn);
     }
 
-    void Update()
-    {
-        if (timeSinceLastSpawn >= timeUntilNextSpawn)
-        {
-            Instantiate(middleGroundObject, transform.position, Quaternion.identity);
+    //void update()
+    //{
+    //    if (timesincelastspawn >= timeuntilnextspawn)
+    //    {
+    //        instantiate(middlegroundobject, transform.position, quaternion.identity);
 
-            timeSinceLastSpawn = 0;
-            timeUntilNextSpawn = Random.Range(minimumTimeUntilSpawn, maximumTimeUntilSpawn);
-        }
-        else
-        {
-            timeSinceLastSpawn += Time.deltaTime;
-        }
+    //        timesincelastspawn = 0;
+    //        timeuntilnextspawn = random.range(minimumtimeuntilspawn, maximumtimeuntilspawn);
+    //    }
+    //    else
+    //    {
+    //        timesincelastspawn += time.deltatime;
+    //    }
+    //}
+
+    public void Spawn()
+    {
+        Instantiate(middleGroundObject, transform.position, Quaternion.identity);
     }
 }

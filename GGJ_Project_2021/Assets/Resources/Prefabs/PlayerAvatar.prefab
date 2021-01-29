@@ -146,8 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db595def0bbd59d4e8b0850d5e95a373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  score: 0
 --- !u!95 &1494494984
 Animator:
   serializedVersion: 3
@@ -180,4 +178,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constantMovement: 3
-  leftOutOfBounds: -15
