@@ -5,11 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public float constantMovement = 3.0f;
-    public float leftOutOfBounds = -13.0f;
+    public float leftOutOfBounds = -15.0f;
+    
 
     void Update()
     {
-        transform.Translate(Vector2.left * constantMovement * Time.deltaTime);
+        MoveToLeft();
 
         DestroyOutOfBounds();
     }
@@ -22,5 +23,10 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Object destroyed by GameManager");
         }
+    }
+
+    void MoveToLeft()
+    {
+        transform.position = new Vector3(transform.position.x - (constantMovement * Time.deltaTime), transform.position.y);
     }
 }

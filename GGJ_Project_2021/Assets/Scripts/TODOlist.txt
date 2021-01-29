@@ -1,0 +1,9 @@
+Sätta upp scener/windows/screens (StartScene) (Maingame Scene) WinScene & Game Over Scene
+Bättre jumping för player Avatar.
+Bättre random för objects, obstacles & midground.
+Script för gaining bonus items & points.
+Bättre fysik scrips för pickup objects
+Fixa buggen att saker stannar när de ramlar omkull (Game Manager).
+Snygga till bakgrund/midground.
+Snyggare timer/GUI elements.
+Snygg poängräkning av något slag?
