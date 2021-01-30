@@ -26,5 +26,16 @@ public class TimeScript : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+
+        if(currentTime < 115)
+        {
+            Debug.Log("Time is under 115");
+            GameManager.constantMovement = 4f;
+        }
+        if (currentTime < 110)
+        {
+            Debug.Log("Time is under 110");
+            GameManager.constantMovement = 5f;
+        }
     }
 }

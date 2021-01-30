@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float constantMovement = 3.0f;
+    public static float constantMovement = 3.0f;
     public float leftOutOfBounds = -15.0f;
     
 
@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
         if(transform.position.x <= leftOutOfBounds)
         {
             Destroy(gameObject);
-
-            Debug.Log("Object destroyed by GameManager");
         }
     }
 
