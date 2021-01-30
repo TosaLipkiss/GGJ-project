@@ -38,28 +38,10 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         SpawnPickUp();
-        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn)
-        {
-            indexToSpawn = Random.Range(0, middleGroundObjects.Length - 1);
-            
-            Instantiate(middleGroundObjects[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
-            timeSinceMiddleGroundSpawn = 0;
 
-            timeBetweenMiddleGroundSpawn = 10 + Random.Range(-3f, +3f);
-        }
-        else
-        {
-            timeSinceMiddleGroundSpawn += Time.deltaTime;
-        }
+        MiddleGroundSpawn();
 
-        if(timeSinceObstacleSpawn >= timeBetweenObstacleSpawn)
-        {
-            indexToSpawn = Random.Range(0, obstacles.Length - 1);
-
-            Instantiate(obstacles[indexToSpawn], transform.position, Quaternion.identity);
-            
-            timeBetweenObstacleSpawn = 3.0f + Random.Range(-1.2f, +1.0f);
-        }
+        ObstacleSpawn();
     }
 
     void SpawnPickUp()
@@ -70,6 +52,42 @@ public class SpawnManager : MonoBehaviour
             int randomPickUp = Random.Range(0, pickupObjects.Length);
             Instantiate(pickupObjects[randomPickUp], pickUpSpawnPoint.position, Quaternion.identity);
             pickUpSpawnTimer = 0f;
+        }
+    }
+
+    void MiddleGroundSpawn()
+    {
+        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn)
+        {
+            indexToSpawn = Random.Range(0, middleGroundObjects.Length - 1);
+
+            Instantiate(middleGroundObjects[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
+
+            timeBetweenMiddleGroundSpawn = 10 + Random.Range(-3f, +3f);
+
+            timeSinceMiddleGroundSpawn = 0f;
+        }
+        else
+        {
+            timeSinceMiddleGroundSpawn += Time.deltaTime;
+        }
+    }
+
+    void ObstacleSpawn()
+    {
+        if (timeSinceObstacleSpawn >= timeBetweenObstacleSpawn)
+        {
+            indexToSpawn = Random.Range(0, obstacles.Length - 1);
+
+            Instantiate(obstacles[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
+
+            timeBetweenObstacleSpawn = 3.0f + Random.Range(-1.2f, +1.0f);
+
+            timeSinceObstacleSpawn = 0f;
+        }
+        else
+        {
+            timeSinceObstacleSpawn += Time.deltaTime;
         }
     }
 }
