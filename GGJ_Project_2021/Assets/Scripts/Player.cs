@@ -8,12 +8,15 @@ public class Player : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
     public PauseGame pauseGame;
+    public TimeScript timeScript;
 
     float directionX = 0.0f;
-    float runSpeed = 5f;
+    public float runSpeed = 5f;
+    float runSpeedMultiplier = 1f;
     float jumpSpeed = 7.0f;
 
     public Text scoreText;
+    public Text runSpeedText;
     int score = 0;
 
     bool isJumping = false;
@@ -34,32 +37,20 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (transform.position.x < -4)
-        {
-            runSpeed = 5.0f;
-        }
-        else if (transform.position.x < -2 && transform.position.x > -4)
-        {
-            runSpeed = 4.5f;
-        }
-        else if (transform.position.x < 0 && transform.position.x > -2)
-        {
-            runSpeed = 3.8f;
-        }
-        else if (transform.position.x > 0 && transform.position.x < 4)
-        {
-            runSpeed = 3.2f;
-        }
-        else if (transform.position.x < 4)
-        {
-            runSpeed = 3f;
-        }
+        ChangeRunSpeedDuringTime();
+        runSpeed = 5.0f - (2.0f * Mathf.Min(Mathf.Max(transform.position.x + 4.0f, 0.0f) / 8.0f, 1.0f));
+        runSpeed *= runSpeedMultiplier;
 
         directionX = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(directionX));
         Flip(directionX);
         Jump();
         Fall();
+
+        if(runSpeedText != null)
+        {
+             runSpeedText.text = runSpeed.ToString();
+        }
     }
 
     private void FixedUpdate()
@@ -129,5 +120,29 @@ public class Player : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+    }
+
+    void ChangeRunSpeedDuringTime()
+    {
+        if (timeScript.currentTime < 5f)
+        {
+            runSpeedMultiplier = 0.5f;
+        }
+        else if (timeScript.currentTime < 50f)
+        {
+            runSpeedMultiplier = 1.6f;
+        }
+        else if (timeScript.currentTime < 75f)
+        {
+            runSpeedMultiplier = 1.4f;
+        }
+        else if (timeScript.currentTime < 100f)
+        {
+            runSpeedMultiplier = 1.2f;
+        }
+        else
+        {
+            runSpeedMultiplier = 1.0f;
+        }
     }
 }

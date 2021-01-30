@@ -81,7 +81,7 @@ public class SpawnManager : MonoBehaviour
 
     void LandfillSpawn()
     {
-        if (timeScript.currentTime <= 90f && introVictory == false)
+        if (timeScript.currentTime <= 10f && introVictory == false)
         {
             victory = true;
             introVictory = true;
@@ -91,7 +91,7 @@ public class SpawnManager : MonoBehaviour
 
     void MiddleGroundSpawn()
     {
-        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn && timeScript.currentTime > 30f)
+        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn && timeScript.currentTime > 20f)
         {
             indexToSpawn = Random.Range(0, middleGroundObjects.Length);
 

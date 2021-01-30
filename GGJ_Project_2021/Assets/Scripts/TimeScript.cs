@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimeScript : MonoBehaviour
 {
+    public Player player;
     Image timerBar;
     public float maxTime = 120.0f;
     public float currentTime;
@@ -27,15 +28,21 @@ public class TimeScript : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(currentTime < 115)
+        if (currentTime < 5f)
         {
-            Debug.Log("Time is under 115");
-            GameManager.constantMovement = 4f;
+            GameManager.constantMovement = 0f;
         }
-        if (currentTime < 110)
+        else if (currentTime < 50)
         {
-            Debug.Log("Time is under 110");
+            GameManager.constantMovement = 6f;
+        }
+        else if (currentTime < 75f)
+        {
             GameManager.constantMovement = 5f;
+        }
+        else if (currentTime < 100f)
+        {
+            GameManager.constantMovement = 4f;
         }
     }
 }

@@ -10,13 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8780268528512149449}
   - component: {fileID: 4308245096699431422}
-  - component: {fileID: 2412031030955377687}
   - component: {fileID: 6629900209387970682}
   - component: {fileID: 136356791976798638}
   - component: {fileID: 555203016625407270}
   m_Layer: 0
   m_Name: Obstacle_Box02
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,25 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2412031030955377687
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8870061856037475141}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1d1a868c40cc24e4fbb7cdd20730ffa1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &6629900209387970682
 Rigidbody2D:
   serializedVersion: 4
@@ -139,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02, y: -0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -150,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96, y: 0.81}
+  m_Size: {x: 0.44, y: 0.29}
   m_EdgeRadius: 0
 --- !u!114 &555203016625407270
 MonoBehaviour:
@@ -164,5 +144,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3dc56a7f91f54f4aa52e3ff87c803fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constantMovement: 3
-  leftOutOfBounds: -15

@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -8706776806799184566, guid: f5d8dd7afc430fb458477357cd25cd08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,7 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseGame: {fileID: 0}
+  timeScript: {fileID: 0}
+  runSpeed: 5
   scoreText: {fileID: 0}
+  runSpeedText: {fileID: 0}
 --- !u!95 &1494494984
 Animator:
   serializedVersion: 3
@@ -179,5 +182,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3dc56a7f91f54f4aa52e3ff87c803fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constantMovement: 3
-  leftOutOfBounds: -15
