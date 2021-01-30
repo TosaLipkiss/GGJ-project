@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public TimeScript timeScript;
     public Transform pickUpSpawnPoint;
 
     public Transform groundedObstaclesSpawnPoint;
     public Transform thrownObstaclesSpawnPoint;
 
     public Transform standingDecorationSpawnPoint;
-    
+
+    GameObject landfillObjects;
     public GameObject[] middleGroundObjects;
     public GameObject[] obstacles;
     public GameObject[] pickupObjects;
@@ -29,10 +31,13 @@ public class SpawnManager : MonoBehaviour
     float pickUpSpawnInterval = 10f;
 
     int indexToSpawn;
+    public bool introVictory = false;
+    public bool victory = false;
 
 
     void Start()
     {
+        landfillObjects = Resources.Load<GameObject>("Prefabs/Landfill/Middleground_Landfill");
         middleGroundObjects = Resources.LoadAll<GameObject>("Prefabs/Middleground");
         obstacles = Resources.LoadAll<GameObject>("Prefabs/Obstacles");
         pickupObjects = Resources.LoadAll<GameObject>("Prefabs/Pickup");
@@ -50,11 +55,13 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        SpawnPickUp();
-
-        MiddleGroundSpawn();
-
-        ObstacleSpawn();
+        LandfillSpawn();
+        if (victory == false)
+        {
+            SpawnPickUp();
+            MiddleGroundSpawn();
+            ObstacleSpawn();
+        }
     }
 
     void SpawnPickUp()
@@ -72,16 +79,25 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    void LandfillSpawn()
+    {
+        if (timeScript.currentTime <= 90f && introVictory == false)
+        {
+            victory = true;
+            introVictory = true;
+            Instantiate(landfillObjects, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
+        }
+    }
+
     void MiddleGroundSpawn()
     {
-        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn)
+        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn && timeScript.currentTime > 30f)
         {
-            indexToSpawn = Random.Range(0, middleGroundObjects.Length - 1);
+            indexToSpawn = Random.Range(0, middleGroundObjects.Length);
 
             Instantiate(middleGroundObjects[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
 
             timeBetweenMiddleGroundSpawn = 8 + Random.Range(-3f, +3f);
-
             timeSinceMiddleGroundSpawn = 0f;
         }
         else if(timeSinceMiddleGroundSpawn > 4.0f)
@@ -98,7 +114,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (timeSinceDecorativeSpawn >= timeBetweenDecorativeSpawn)
         {
-            indexToSpawn = Random.Range(0, decorativeObjects.Length - 1);
+            indexToSpawn = Random.Range(0, decorativeObjects.Length);
 
             GameObject decoration = Instantiate(decorativeObjects[indexToSpawn]);
 
@@ -122,9 +138,9 @@ public class SpawnManager : MonoBehaviour
 
     void ObstacleSpawn()
     {
-        if (timeSinceObstacleSpawn >= timeBetweenObstacleSpawn)
+        if (timeSinceObstacleSpawn >= timeBetweenObstacleSpawn && timeScript.currentTime > 30f)
         {
-            indexToSpawn = Random.Range(0, obstacles.Length - 1);
+            indexToSpawn = Random.Range(0, obstacles.Length);
 
             GameObject obstacle = Instantiate(obstacles[indexToSpawn]);
 

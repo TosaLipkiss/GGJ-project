@@ -5,13 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static float constantMovement = 3.0f;
-    public float leftOutOfBounds = -15.0f;
+    public float leftOutOfBounds = -30.0f;
     
 
     void Update()
     {
         MoveToLeft();
-
         DestroyOutOfBounds();
     }
 

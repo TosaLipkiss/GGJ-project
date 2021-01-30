@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 390611071, guid: 12c850d49cdae45409784c526a2a9c65, type: 3}
+      propertyPath: m_Size.x
+      value: 36.58
+      objectReference: {fileID: 0}
     - target: {fileID: 5112383478711303232, guid: 12c850d49cdae45409784c526a2a9c65, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -262,6 +266,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &359031210 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6761784161941986825, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
+  m_PrefabInstance: {fileID: 1849072739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105a8f88c6faba84e9d1bbc404ea5d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &583707814
@@ -791,22 +806,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 409946568, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
-      propertyPath: pauseText
-      value: 
-      objectReference: {fileID: 1849072740}
-    - target: {fileID: 665427501, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666897558, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1258423210143868848, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6761784163298915335, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
       propertyPath: m_Name
       value: UI_Canvas
@@ -897,11 +896,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
---- !u!1 &1849072740 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4987952045241502253, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
-  m_PrefabInstance: {fileID: 1849072739}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2017028763
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a446dcdaeb27f44b3982dcf8fb7ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeScript: {fileID: 359031210}
   pickUpSpawnPoint: {fileID: 1516426426}
   groundedObstaclesSpawnPoint: {fileID: 1331966503}
   thrownObstaclesSpawnPoint: {fileID: 583707815}
@@ -939,6 +934,8 @@ MonoBehaviour:
   obstacles: []
   pickupObjects: []
   decorativeObjects: []
+  introVictory: 0
+  victory: 0
 --- !u!4 &2017028765
 Transform:
   m_ObjectHideFlags: 0

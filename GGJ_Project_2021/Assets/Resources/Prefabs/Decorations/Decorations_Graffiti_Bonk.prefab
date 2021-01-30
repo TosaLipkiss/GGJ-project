@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6617233131134490987}
   - component: {fileID: 3484037523170954285}
-  - component: {fileID: 7552074833722482812}
   - component: {fileID: 6474276779641920151}
   m_Layer: 0
   m_Name: Decorations_Graffiti_Bonk
@@ -84,27 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7552074833722482812
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4845931442421875287}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.02
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &6474276779641920151
 MonoBehaviour:
   m_ObjectHideFlags: 0
