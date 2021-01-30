@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - Points
   - Puddles
+  - Cat
+  - Graffiti
   layers:
   - Default
   - TransparentFX
