@@ -6,8 +6,11 @@ public class SpawnManager : MonoBehaviour
 {
     public Transform pickUpSpawnPoint;
 
+    public Transform groundedObstaclesSpawnPoint;
+    public Transform thrownObstaclesSpawnPoint;
+    
     public Object[] middleGroundObjects;
-    public Object[] obstacles;
+    public GameObject[] obstacles;
     public Object[] pickupObjects;
 
     //Data for govern spawners
@@ -17,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     float timeBetweenObstacleSpawn;
 
     float pickUpSpawnTimer = 0f;
-    float pickUpSpawnInterval = 2f;
+    float pickUpSpawnInterval = 10f;
 
     int indexToSpawn;
 
@@ -25,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         middleGroundObjects = Resources.LoadAll("Prefabs/Middleground", typeof(GameObject));
-        obstacles = Resources.LoadAll("Prefabs/Obstacles", typeof(GameObject));
+        obstacles = Resources.LoadAll<GameObject>("Prefabs/Obstacles");
         pickupObjects = Resources.LoadAll("Prefabs/Pickup", typeof(GameObject));
 
         timeSinceMiddleGroundSpawn = 0;
@@ -41,17 +44,21 @@ public class SpawnManager : MonoBehaviour
 
         MiddleGroundSpawn();
 
-        ObstacleSpawn();
+        GroundedObstacleSpawn();
     }
 
     void SpawnPickUp()
     {
-        pickUpSpawnTimer += Time.deltaTime;
         if(pickUpSpawnTimer >= pickUpSpawnInterval)
         {
             int randomPickUp = Random.Range(0, pickupObjects.Length);
+
             Instantiate(pickupObjects[randomPickUp], pickUpSpawnPoint.position, Quaternion.identity);
             pickUpSpawnTimer = 0f;
+        }
+        else
+        {
+            pickUpSpawnTimer += Time.deltaTime;
         }
     }
 
@@ -73,13 +80,22 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void ObstacleSpawn()
+    void GroundedObstacleSpawn()
     {
         if (timeSinceObstacleSpawn >= timeBetweenObstacleSpawn)
         {
             indexToSpawn = Random.Range(0, obstacles.Length - 1);
 
-            Instantiate(obstacles[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
+            GameObject obstacle = Instantiate(obstacles[indexToSpawn]);
+
+            if(obstacle.CompareTag("Puddles"))
+            {
+                obstacle.transform.position = groundedObstaclesSpawnPoint.position;
+            }
+            else
+            {
+                obstacle.transform.position = thrownObstaclesSpawnPoint.position;
+            }
 
             timeBetweenObstacleSpawn = 3.0f + Random.Range(-1.2f, +1.0f);
 
