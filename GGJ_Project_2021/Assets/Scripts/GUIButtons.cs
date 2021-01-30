@@ -12,7 +12,7 @@ public class GUIButtons : MonoBehaviour
     }
     public void ExitGameButton()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void PlayGameButton()
