@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public PauseGame pauseGame;
 
     float directionX = 0.0f;
-    float runSpeed = 3.6f;
+    float runSpeed = 5f;
     float jumpSpeed = 7.0f;
 
     public Text scoreText;
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Rigidbody2D>().gravityScale = 1;
         facingRight = true;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -31,6 +32,27 @@ public class Player : MonoBehaviour
         if(pauseGame.pause == true || Time.deltaTime == 0)
         {
             return;
+        }
+
+        if (transform.position.x < -4)
+        {
+            runSpeed = 5.0f;
+        }
+        else if (transform.position.x < -2 && transform.position.x > -4)
+        {
+            runSpeed = 4.5f;
+        }
+        else if (transform.position.x < 0 && transform.position.x > -2)
+        {
+            runSpeed = 3.8f;
+        }
+        else if (transform.position.x > 0 && transform.position.x < 4)
+        {
+            runSpeed = 3.2f;
+        }
+        else if (transform.position.x < 4)
+        {
+            runSpeed = 3f;
         }
 
         directionX = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -64,9 +86,15 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("Jump", false);
             animator.SetBool("Fall", true);
+
+            if (rb.velocity.y < -0.2f)
+            {
+                GetComponent<Rigidbody2D>().gravityScale = 5;
+            }
         }
         else
         {
+            GetComponent<Rigidbody2D>().gravityScale = 1;
             animator.SetBool("Fall", false);
         }
     }
