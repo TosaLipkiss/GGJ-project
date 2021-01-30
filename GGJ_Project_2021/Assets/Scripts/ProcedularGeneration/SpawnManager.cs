@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     float timeSinceDecorativeSpawn;
 
     float pickUpSpawnTimer = 0f;
-    float pickUpSpawnInterval = 10f;
+    float pickUpSpawnInterval;
 
     int indexToSpawn;
     public bool introVictory = false;
@@ -66,7 +66,15 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnPickUp()
     {
-        if(pickUpSpawnTimer >= pickUpSpawnInterval)
+        if(timeScript.currentTime > 50f)
+        {
+            pickUpSpawnInterval = Random.Range(1f, 4f);
+        }
+        else
+        {
+            pickUpSpawnInterval = Random.Range(0.5f, 2f);
+        }
+        if (pickUpSpawnTimer >= pickUpSpawnInterval && timeScript.currentTime > 5f)
         {
             int randomPickUp = Random.Range(0, pickupObjects.Length);
 
@@ -81,7 +89,7 @@ public class SpawnManager : MonoBehaviour
 
     void LandfillSpawn()
     {
-        if (timeScript.currentTime <= 10f && introVictory == false)
+        if (timeScript.currentTime <= 11f && introVictory == false)
         {
             victory = true;
             introVictory = true;
@@ -91,18 +99,18 @@ public class SpawnManager : MonoBehaviour
 
     void MiddleGroundSpawn()
     {
-        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn && timeScript.currentTime > 20f)
+        if (timeSinceMiddleGroundSpawn >= timeBetweenMiddleGroundSpawn && timeScript.currentTime > 5f)
         {
             indexToSpawn = Random.Range(0, middleGroundObjects.Length);
 
             Instantiate(middleGroundObjects[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
 
-            timeBetweenMiddleGroundSpawn = 8 + Random.Range(-3f, +3f);
+            timeBetweenMiddleGroundSpawn = 6 + Random.Range(-3f, +3f);
             timeSinceMiddleGroundSpawn = 0f;
         }
         else if(timeSinceMiddleGroundSpawn > 4.0f)
         {
-            DecorationSpawn();
+           // DecorationSpawn();
         }
         
         timeSinceMiddleGroundSpawn += Time.deltaTime;
@@ -138,7 +146,7 @@ public class SpawnManager : MonoBehaviour
 
     void ObstacleSpawn()
     {
-        if (timeSinceObstacleSpawn >= timeBetweenObstacleSpawn && timeScript.currentTime > 30f)
+        if (timeSinceObstacleSpawn >= timeBetweenObstacleSpawn && timeScript.currentTime > 5f)
         {
             indexToSpawn = Random.Range(0, obstacles.Length);
 

@@ -12,6 +12,7 @@ public class TimeScript : MonoBehaviour
 
     void Start()
     {
+        PhysicsManager.constantMovement = 3f;
         timerBar = GetComponent<Image>();
         currentTime = maxTime;
     }
@@ -25,24 +26,24 @@ public class TimeScript : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0;
+           // Time.timeScale = 0;
         }
 
         if (currentTime < 5f)
         {
-            GameManager.constantMovement = 0f;
+            PhysicsManager.constantMovement = 0f;
         }
         else if (currentTime < 50)
         {
-            GameManager.constantMovement = 6f;
+            PhysicsManager.constantMovement = 6f;
         }
         else if (currentTime < 75f)
         {
-            GameManager.constantMovement = 5f;
+            PhysicsManager.constantMovement = 5f;
         }
         else if (currentTime < 100f)
         {
-            GameManager.constantMovement = 4f;
+            PhysicsManager.constantMovement = 4f;
         }
     }
 }

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PhysicsManager : MonoBehaviour
 {
     public static float constantMovement = 3.0f;
-    float leftOutOfBounds = -100.0f;
+    float leftOutOfBounds = -30.0f;
     
 
     void Update()

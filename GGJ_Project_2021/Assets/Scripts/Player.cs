@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public AudioClip victoryMusic;
+    public AudioClip jumpSound;
+    public AudioSource musicSource;
+    public AudioSource audioSource;
+    public AudioSource truckAudioSource;
+    public GameObject victoryScreen;
     Animator animator;
     Rigidbody2D rb;
     public PauseGame pauseGame;
@@ -16,7 +22,7 @@ public class Player : MonoBehaviour
     float jumpSpeed = 7.0f;
 
     public Text scoreText;
-    public Text runSpeedText;
+    public Text victoryScoreText;
     int score = 0;
 
     bool isJumping = false;
@@ -24,6 +30,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         GetComponent<Rigidbody2D>().gravityScale = 1;
         facingRight = true;
         animator = GetComponent<Animator>();
@@ -46,11 +53,6 @@ public class Player : MonoBehaviour
         Flip(directionX);
         Jump();
         Fall();
-
-        if(runSpeedText != null)
-        {
-             runSpeedText.text = runSpeed.ToString();
-        }
     }
 
     private void FixedUpdate()
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
+            audioSource.PlayOneShot(jumpSound);
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             isJumping = true;
             if (rb.velocity.y > 0f)
@@ -105,6 +108,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Victory")
+        {
+            musicSource.Stop();
+            truckAudioSource.Stop();
+            audioSource.Stop();
+            audioSource.clip = victoryMusic;
+            audioSource.loop = true;
+            audioSource.Play();
+            victoryScreen.SetActive(true);
+        }
+    }
+
     void Flip(float directionX)
     {
         if(directionX > 0 && !facingRight || directionX < 0 && facingRight)
@@ -120,13 +137,14 @@ public class Player : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        victoryScoreText.text = score.ToString();
     }
 
     void ChangeRunSpeedDuringTime()
     {
         if (timeScript.currentTime < 5f)
         {
-            runSpeedMultiplier = 0.5f;
+            runSpeedMultiplier = 1f;
         }
         else if (timeScript.currentTime < 50f)
         {
