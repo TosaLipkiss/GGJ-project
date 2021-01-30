@@ -32,10 +32,10 @@ public class SpawnManager : MonoBehaviour
         pickupObjects = Resources.LoadAll("Prefabs/Pickup", typeof(GameObject));
 
         timeSinceMiddleGroundSpawn = 0;
-        timeBetweenMiddleGroundSpawn = 10;
+        timeBetweenMiddleGroundSpawn = 8;
 
         timeSinceObstacleSpawn = 0;
-        timeBetweenObstacleSpawn = 3;
+        timeBetweenObstacleSpawn = 2;
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class SpawnManager : MonoBehaviour
 
         MiddleGroundSpawn();
 
-        GroundedObstacleSpawn();
+        ObstacleSpawn();
     }
 
     void SpawnPickUp()
@@ -70,7 +70,7 @@ public class SpawnManager : MonoBehaviour
 
             Instantiate(middleGroundObjects[indexToSpawn], new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
 
-            timeBetweenMiddleGroundSpawn = 10 + Random.Range(-3f, +3f);
+            timeBetweenMiddleGroundSpawn = 8 + Random.Range(-3f, +3f);
 
             timeSinceMiddleGroundSpawn = 0f;
         }
@@ -80,7 +80,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void GroundedObstacleSpawn()
+    void ObstacleSpawn()
     {
         if (timeSinceObstacleSpawn >= timeBetweenObstacleSpawn)
         {
@@ -97,7 +97,7 @@ public class SpawnManager : MonoBehaviour
                 obstacle.transform.position = thrownObstaclesSpawnPoint.position;
             }
 
-            timeBetweenObstacleSpawn = 3.0f + Random.Range(-1.2f, +1.0f);
+            timeBetweenObstacleSpawn = 1.3f + Random.Range(-1.2f, +1.0f);
 
             timeSinceObstacleSpawn = 0f;
         }
