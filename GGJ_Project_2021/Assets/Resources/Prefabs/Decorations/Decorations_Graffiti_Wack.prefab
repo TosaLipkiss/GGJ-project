@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 654492011721468429}
   - component: {fileID: 7104941705655631691}
-  - component: {fileID: 4183359654781817626}
   - component: {fileID: 799770536196925937}
   m_Layer: 0
   m_Name: Decorations_Graffiti_Wack
-  m_TagString: Obstacle
+  m_TagString: Graffiti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,27 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4183359654781817626
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261060146838729009}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.02
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &799770536196925937
 MonoBehaviour:
   m_ObjectHideFlags: 0

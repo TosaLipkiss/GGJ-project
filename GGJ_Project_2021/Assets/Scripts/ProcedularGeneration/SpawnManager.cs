@@ -8,16 +8,22 @@ public class SpawnManager : MonoBehaviour
 
     public Transform groundedObstaclesSpawnPoint;
     public Transform thrownObstaclesSpawnPoint;
+
+    public Transform standingDecorationSpawnPoint;
     
-    public Object[] middleGroundObjects;
+    public GameObject[] middleGroundObjects;
     public GameObject[] obstacles;
-    public Object[] pickupObjects;
+    public GameObject[] pickupObjects;
+    public GameObject[] decorativeObjects;
 
     //Data for govern spawners
     float timeSinceMiddleGroundSpawn;
     float timeBetweenMiddleGroundSpawn;
     float timeSinceObstacleSpawn;
     float timeBetweenObstacleSpawn;
+
+    float timeBetweenDecorativeSpawn;
+    float timeSinceDecorativeSpawn;
 
     float pickUpSpawnTimer = 0f;
     float pickUpSpawnInterval = 10f;
@@ -27,15 +33,19 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        middleGroundObjects = Resources.LoadAll("Prefabs/Middleground", typeof(GameObject));
+        middleGroundObjects = Resources.LoadAll<GameObject>("Prefabs/Middleground");
         obstacles = Resources.LoadAll<GameObject>("Prefabs/Obstacles");
-        pickupObjects = Resources.LoadAll("Prefabs/Pickup", typeof(GameObject));
+        pickupObjects = Resources.LoadAll<GameObject>("Prefabs/Pickup");
+        decorativeObjects = Resources.LoadAll<GameObject>("Prefabs/Decorations");
 
         timeSinceMiddleGroundSpawn = 0;
         timeBetweenMiddleGroundSpawn = 8;
 
         timeSinceObstacleSpawn = 0;
         timeBetweenObstacleSpawn = 2;
+
+        timeBetweenDecorativeSpawn = 2;
+        timeSinceDecorativeSpawn = 0;
     }
 
     void Update()
@@ -74,9 +84,39 @@ public class SpawnManager : MonoBehaviour
 
             timeSinceMiddleGroundSpawn = 0f;
         }
-        else
+        else if(timeSinceMiddleGroundSpawn > 4.0f)
         {
-            timeSinceMiddleGroundSpawn += Time.deltaTime;
+            DecorationSpawn();
+        }
+        
+        timeSinceMiddleGroundSpawn += Time.deltaTime;
+        timeSinceDecorativeSpawn += Time.deltaTime;
+
+    }
+
+    void DecorationSpawn()
+    {
+        if (timeSinceDecorativeSpawn >= timeBetweenDecorativeSpawn)
+        {
+            indexToSpawn = Random.Range(0, decorativeObjects.Length - 1);
+
+            GameObject decoration = Instantiate(decorativeObjects[indexToSpawn]);
+
+            if(decoration.CompareTag("Cat"))
+            {
+                decoration.transform.position = standingDecorationSpawnPoint.position;
+            }
+            else if(decoration.CompareTag("Graffiti"))
+            {
+                decoration.transform.position = thrownObstaclesSpawnPoint.position;
+            }
+            else
+            {
+                decoration.transform.position = standingDecorationSpawnPoint.position;
+            }
+
+            timeSinceDecorativeSpawn = 0;
+            timeBetweenDecorativeSpawn = Random.Range(0.0f, 4.0f);
         }
     }
 
@@ -97,7 +137,7 @@ public class SpawnManager : MonoBehaviour
                 obstacle.transform.position = thrownObstaclesSpawnPoint.position;
             }
 
-            timeBetweenObstacleSpawn = 1.3f + Random.Range(-1.2f, +1.0f);
+            timeBetweenObstacleSpawn = 1.3f + Random.Range(-0.9f, +1.0f);
 
             timeSinceObstacleSpawn = 0f;
         }

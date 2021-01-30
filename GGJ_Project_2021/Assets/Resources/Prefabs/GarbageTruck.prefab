@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2244839367911394240}
   m_Layer: 0
   m_Name: GarbageTruck
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2244839367911394246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.010779, y: 0.022518754, z: -1}
+  m_LocalPosition: {x: 7.010779, y: 0.022518754, z: -2}
   m_LocalScale: {x: 1.539386, y: 1.3442023, z: 0.74172}
   m_Children: []
   m_Father: {fileID: 0}
