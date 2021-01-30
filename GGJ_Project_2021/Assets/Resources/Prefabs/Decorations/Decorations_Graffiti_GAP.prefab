@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8907657217571319068}
   - component: {fileID: 1158182501378914394}
-  - component: {fileID: 5225624166774723595}
   - component: {fileID: 8760127032767164128}
   m_Layer: 0
   m_Name: Decorations_Graffiti_GAP
@@ -84,27 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5225624166774723595
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136883292217554464}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.02
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &8760127032767164128
 MonoBehaviour:
   m_ObjectHideFlags: 0

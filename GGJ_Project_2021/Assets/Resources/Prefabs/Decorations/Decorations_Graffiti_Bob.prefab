@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9079214646614749594}
   - component: {fileID: 1617691993749972188}
-  - component: {fileID: 5684853259001088141}
   - component: {fileID: 9219919067426894438}
   m_Layer: 0
   m_Name: Decorations_Graffiti_Bob
@@ -84,27 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5684853259001088141
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7307881081653078694}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.02
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &9219919067426894438
 MonoBehaviour:
   m_ObjectHideFlags: 0
