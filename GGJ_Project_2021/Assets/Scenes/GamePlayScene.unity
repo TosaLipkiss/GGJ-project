@@ -1362,6 +1362,10 @@ PrefabInstance:
       propertyPath: truckAudioSource
       value: 
       objectReference: {fileID: 1427197352}
+    - target: {fileID: 518122803, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 550700469, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1382,6 +1386,24 @@ PrefabInstance:
       propertyPath: truckAudioSource
       value: 
       objectReference: {fileID: 1427197352}
+    - target: {fileID: 2120653774, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -12.650003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120653774, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -6.324998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120653775, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
+      propertyPath: m_Text
+      value: 'Back to main menu
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120653775, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6761784161941986825, guid: 720eb3ca9314469418e9d678774fa3ff, type: 3}
       propertyPath: player
       value: 
@@ -1552,7 +1574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2244839367911394242, guid: c417e1a190763374887addead0196230, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.010779
+      value: 7.11
       objectReference: {fileID: 0}
     - target: {fileID: 2244839367911394242, guid: c417e1a190763374887addead0196230, type: 3}
       propertyPath: m_LocalPosition.y
